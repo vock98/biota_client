@@ -11,7 +11,7 @@ th,td{text-align:center}
 
 /* global */
 html,body{font-size:62.5%}
-body{font:3.6em/1.6em Arial,"Microsoft JhengHei",sans-serif;color:white;background:url("../img/bg.jpg") no-repeat 0 0 fixed}
+body{font-size:3.6em;font:1.6vw/1.6em Arial,"Microsoft JhengHei",sans-serif;color:white;background:url("../img/bg.jpg") no-repeat 0 0 fixed}
 table{width:100%}
 input{letter-spacing:0.8rem;color:#008cd6}
 caption{text-indent:30px;font-weight:bold}
@@ -94,7 +94,8 @@ button{cursor:pointer}
 		.gird-table tr:last-child td{border-bottom-color:transparent}
 		.gird-table th{padding:5px 0;border-right:4px solid rgba(0,100,166,0.5);background-color:#00a6db}
 		.gird-table th:last-child{border-right-width:0}
-		.gird-table td{border-bottom:2px solid #0b9bcd;padding:20px 30px;line-height:3.4rem}
+		/*.gird-table td{border-bottom:2px solid #0b9bcd;padding:20px 30px;line-height:3.4rem}*/
+		.gird-table td{border-bottom:2px solid #0b9bcd;padding:20px 30px}
 
 /* p_03 */
 .menu{width:1104px;margin: 0 auto}
@@ -113,7 +114,7 @@ button{cursor:pointer}
 
 /* p_04 */
 .search-fulid{width:90%;margin:0 auto}
-	.search-fulid>*{height:69px;font-family:inherit;font-size:4.6rem}
+	.search-fulid>*{height:69px;font-family:inherit;font-size:4.6rem;font-size:2.4vw}
 	.search-fulid input[type="text"]{width:calc(100% - 208px);padding:0 30px}
 	.search-fulid button{width:148px;vertical-align:bottom;margin-left:-10px}
 
@@ -129,19 +130,16 @@ button{cursor:pointer}
 	.fulid-table td:after,
 	.grid-3-table td:after{position:absolute}
 
-	.grid-fulid:before{left:0;right:0;content:"";background-color:#0d98ce;box-shadow: 0 20px 20px rgba(0,0,0,0.2)}
-
-	.grid-fulid:before,
-	.fulid-table th{height:80px;border-top:1px solid rgba(255,255,255,0.2);border-right:2px solid #0060a2;border-bottom:1px solid #0060a2}
 	.fulid-table{width:calc(100% - 50px)}
+	.fulid-table th{padding:10px 0;border-top:1px solid rgba(255,255,255,0.2);border-right:2px solid #0060a2;border-bottom:1px solid #0060a2;white-space:nowrap;background-color:#0d98ce}
 
 	.fulid-table th:last-child{border-right:0}
 
 	.fulid-table th,
-	.grid-3-table th{font-weight:bold;font-size:4.6rem;overflow:hidden}
+	.grid-3-table th{font-weight:bold;font-size:4.6em;font-size:2.4vw;overflow:hidden}
 	.fulid-table td{padding:20px;border-bottom:2px solid #008cd6}
 		.fulid-table td:after,
-		.grid-3-table th:after{top:calc(50% - 28.5px);right:0;bottom:0;content:"";width:2px;height:calc(100% - 40px);background-color:#008cd6}
+		.grid-3-table th:after{top:25%;right:0;bottom:0;content:"";width:2px;height:50%;background-color:#008cd6}
 		.fulid-table td:last-child:after{width:0}
 		.fulid-table td a{color:white}
 
@@ -188,4 +186,4 @@ button{cursor:pointer}
 /* p_07 */
 .ds-device-info{width:90%;margin:0 auto}
 	.grid-5{width:50%;float:left}
-	.ds-device-info img{max-width: 100%}
+	.ds-device-info img{max-width: 100%;}

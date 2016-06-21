@@ -16,3 +16,19 @@ $("#number_btn li").click(function(){
 			break;
 	}
 });
+
+
+//  upload_finger_image
+function input_finger( target_obj ){
+	$(target_obj).trigger("click");
+};
+
+$("#input_finger_1").click(function(){
+	input_finger("#input_finger_file_1");
+});
+$("#input_finger_2").click(function(){
+	input_finger("#input_finger_file_2");
+});
+$("#input_finger_3").click(function(){
+	input_finger("#input_finger_file_3");
+});
