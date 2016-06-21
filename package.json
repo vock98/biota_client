@@ -1,0 +1,17 @@
+{
+  "name": "biota_client",
+  "version": "0.0.1",
+  "main": "view/index.html",
+  "window": {
+    "toolbar": true,
+    "width": 800,
+    "height": 500,
+    "frame": true
+  },
+  "dependencies": {
+    "chokidar": "^1.5.2",
+    "co": "^4.6.0",
+    "node-localdb": "0.0.3",
+    "underscore": "^1.8.3"
+  }
+}
