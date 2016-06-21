@@ -72,7 +72,14 @@
     <script type="text/javascript" src="scripts/livereload.js"></script>
     <script type="text/javascript" src="scripts/date_time_config.js"></script>
     <script>
-
+        var co = require('co');
+        co(function* () {
+            var ajax_url = "http://52.192.93.236:1337/api/ds_human/find"; //ajax網址
+            var ajax_data = {}; //ajax輸入值
+            var ajax_return = yield ajax_callback( ajax_url, ajax_data ); //ajax回傳值            
+        }).catch(function(err){
+            console.log("catch_error",err);
+        });
     </script>
 </body>
 </html>
