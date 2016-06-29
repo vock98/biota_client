@@ -27,30 +27,30 @@ function ajax_callback( input_url, input_obj ){
         history.back();
     })
     
-    $(".i-setting").on("click",function(){
+    $(".i-setting").parent().on("click",function(){
         document.location.href="p_03.html";
     })
     
-    $(".i-admin").on("click",function(){
+    $(".i-admin").parent().on("click",function(){
         document.location.href="p_04.html";
     })
     
-    $(".i-sync").on("click",function(){
-        document.location.href="p_03.html";//不知道
+    $(".i-sync").parent().on("click",function(){
+        document.location.href="p_03.html"; //不知道
     })
     
-    $(".i-log").on("click",function(){
+    $(".i-log").parent().on("click",function(){
         document.location.href="p_06.html";
     })
     
-    $(".i-system").on("click",function(){
+    $(".i-system").parent().on("click",function(){
         document.location.href="p_08.html";
     })
     
-    $(".i-finger").on("click",function(){
-        document.location.href="p_01.html";
+    $(".i-finger").parent().on("click",function(){
+        document.location.href="p_07.html";
     })  
     
-    $(".i-access").on("click",function(){
-        document.location.href="p_07.html";
+    $(".i-access").parent().on("click",function(){
+        // document.location.href="p_07.html";
     })     
