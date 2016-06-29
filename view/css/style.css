@@ -1,4 +1,4 @@
-/* reset */
+ reset */
 body,ul,li,div,h1,h2,h3,label,input,button,i,p,em,span,table,tr,th,td,caption{margin:0;padding:0}
 ul,li{list-style:none}
 input,
@@ -22,20 +22,25 @@ caption{text-indent:30px;font-weight:bold}
 .text-left{text-align:left}
 .text-center{text-align:center}
 .text-right{text-align:right}
+.text-sucess{color:yellowgreen}
+.text-danger{color:orangered}
 .setting>i,
 .menu li,
 .number li,
 button{cursor:pointer}
+.hidden{display:none !important}
 
 	/* bg-img */
 	.side-bg{background-image: url("../img/bg2.jpg")}
 
 	/* btn */
+	.btn-default,
 	.btn-success,
 	.btn-warning,
 	.btn-danger{background-color:#aacd06;color:#fff;font-weight:bold}
 	.btn-warning{background-color:#fabd00}
 	.btn-danger{background-color:#c22c81}
+	.btn-default{background-color:#ccc;outline-color:#ccc}
 
 /* head */
 .head:after{display:block;content:"";clear:both}
@@ -115,7 +120,7 @@ button{cursor:pointer}
 /* p_04 */
 .search-fulid{width:90%;margin:0 auto}
 	.search-fulid>*{height:69px;font-family:inherit;font-size:4.6rem;font-size:2.4vw}
-	.search-fulid input[type="text"]{width:calc(100% - 208px);padding:0 30px}
+	.search-fulid input[type="text"]{width:calc(100% - 208px);padding:0 30px;background:white url("../img/search_icon.png") no-repeat 99% 0;background-size: 70px 70px}
 	.search-fulid button{width:148px;vertical-align:bottom;margin-left:-10px}
 
 .grid-fulid,
@@ -137,7 +142,7 @@ button{cursor:pointer}
 
 	.fulid-table th,
 	.grid-3-table th{font-weight:bold;font-size:4.6em;font-size:2.4vw;overflow:hidden}
-	.fulid-table td{padding:20px;border-bottom:2px solid #008cd6}
+	.fulid-table td{padding:20px;border-bottom:2px solid #008cd6;word-break:break-all}
 		.fulid-table td:after,
 		.grid-3-table th:after{top:25%;right:0;bottom:0;content:"";width:2px;height:50%;background-color:#008cd6}
 		.fulid-table td:last-child:after{width:0}
@@ -186,4 +191,11 @@ button{cursor:pointer}
 /* p_07 */
 .ds-device-info{width:90%;margin:0 auto}
 	.grid-5{width:50%;float:left}
-	.ds-device-info img{max-width: 100%;}
+	.ds-device-info img{max-width: 100%}
+
+/* p_08 */
+
+	/* dialog */
+	.modal-dialog{color:black}
+	.modal-dialog input[type="text"]{letter-spacing:0.2rem}
+	.modal-dialog label{font-size:1.6rem;line-height:1.6rem}

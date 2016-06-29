@@ -3,7 +3,9 @@
 <head>
 	<meta charset="UTF-8">
 	<title>p_08</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/style.css">
+	<script src="scripts/jquery.min.js"></script>
 </head>
 <body>
 	<div class="head">
@@ -14,50 +16,381 @@
 	</div>
 
 	<div class="search-fulid">
-		<input type="text" placeholder="搜尋欄">
+		<input type="text" id="search_box" placeholder="輸入關鍵字搜尋">
 		<button class="btn-success">查詢</button>
 	</div>
 	
 	<div class="grid-fulid grid-8">
-		<table class="fulid-table">
-			<tr>
-				<th>設定</th>
-				<th>參數</th>
-				<th>前一次參數</th>
-				<th>還原操作</th>
-			</tr>
-			<tr>
-				<td>指紋主機位置</td>
-				<td>&nbsp;</td>
-				<td></td>
-				<td class="text-left">
-					<a href="#">前一次</a>
-					<a href="#">預設值</a>
-				</td>
-			</tr>
-			<tr>
-				<td>門禁主機位置</td>
-				<td></td>
-				<td></td>
-				<td class="text-left"></td>
-			</tr>
-			<tr>
-				<td>操作資料匯出位置</td>
-				<td></td>
-				<td></td>
-				<td class="text-left"></td>
-			</tr>
+		<table class="fulid-table" id="search_cont">
+			<thead>
+				<tr>
+					<th width="20%">設定</th>
+					<th width="40%">參數</th>
+					<th width="20%">前一次參數</th>
+					<th width="20%">還原操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!--
+				/*  data-modaltype ( dialog類型 )
+					1. input - text
+					2. radio - t || f
+					3. radio - single_choose
+					4. checkbox
+					5. radio - n || y
+
+				/*  data-titletext ( dialog標題 )
+				/*  data-inputext  ( dialog內容 )
+				-->
+				<tr data-view-type="1">
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="2">連線伺服器</td>
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="2">true</td>
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="2"></td>
+					<td></td>
+				</tr>
+				<tr data-view-type="1">
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="2">關閉API錯誤提示</td>
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="2">true</td>
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="2">false</td>
+					<td>
+						<a href="#" onclick="alert('alert!!')">前一次</a>
+						<a href="#">預設值</a>
+					</td>
+				</tr>
+				<tr data-view-type="1">
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">伺服器網址</td>
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">http://203.66.65.139</td>
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1"></td>
+					<td></td>
+				</tr>
+				<tr data-view-type="1">
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">系統公告API</td>
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">/test/announcement.php</td>
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1"></td>
+					<td></td>
+				</tr>
+				<tr data-view-type="1">
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">提醒事項API</td>
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">/test/reminder.php</td>
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1"></td>
+					<td></td>
+				</tr>
+				<tr data-view-type="3">
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">指紋採樣程式執行設備API</td>
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">/test/ApDevice.php</td>
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1"></td>
+					<td></td>
+				</tr>
+				<tr data-view-type="3">
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">指紋機設備資料API</td>
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">/test/FingerprintDevice.php</td>
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1"></td>
+					<td></td>
+				</tr>
+				<tr data-view-type="2">
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">人員資料API</td>
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">/test/human.php</td>
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1"></td>
+					<td></td>
+				</tr>
+				<tr data-view-type="2">
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">NFC資料API</td>
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">/test/nfc.php</td>
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1"></td>
+					<td></td>
+				</tr>
+				<tr data-view-type="1">
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">Server指紋資料管理API</td>
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">/test/fingerprint.php</td>
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1"></td>
+					<td></td>
+				</tr>
+				<tr data-view-type="3">
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">Client端比對指紋資料紀錄API</td>
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">/test/MatchLog.php</td>
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1"></td>
+					<td></td>
+				</tr>
+				<tr data-view-type="1">
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">SMTP Server</td>
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">ms.mailcloud.com.tw</td>
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1"></td>
+					<td></td>
+				</tr>
+				<tr data-view-type="1">
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">SMTP Port</td>
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">25</td>
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1"></td>
+					<td></td>
+				</tr>
+				<tr data-view-type="2">
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">EmailAccount</td>
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">light@mail.startek-eng.com</td>
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1"></td>
+					<td></td>
+				</tr>
+				<tr data-view-type="2">
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">EmailPassword</td>
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">2xuxodrx</td>
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1"></td>
+					<td></td>
+				</tr>
+				<tr data-view-type="2">
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="2">EmailSSL</td>
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="2">false</td>
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="2"></td>
+					<td></td>
+				</tr>
+				<tr data-view-type="1">
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">郵件發送目的地</td>
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">skt90u@gmail.com</td>
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1"></td>
+					<td></td>
+				</tr>
+				<tr data-view-type="1">
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">郵件主旨</td>
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">[BioTA]{appname}_CSV_{date:yyyyMMdd}_{date:HH}</td>
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1"></td>
+					<td></td>
+				</tr>
+				<tr data-view-type="1">
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">郵件內容</td>
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1"></td>
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1"></td>
+					<td></td>
+				</tr>
+				<tr data-view-type="1">
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="4">郵件發送時間</td>
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="4">00:00,01:00,02:00,03:00,04:00,05:00,06:00,07:00,08:00,09:00,10:00,11:00,12:00,13:00,14:00,15:00,16:00,17:00,18:00,19:00,20:00,21:00,22:00,23:00</td>
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="4"></td>
+					<td></td>
+				</tr>
+				<tr data-view-type="3">
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="3">匯出格式</td>
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="3">csv</td>
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="3"></td>
+					<td></td>
+				</tr>
+				<tr data-view-type="3">
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="5">顯示NFC警告訊息</td>
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="5">Y</td>
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="5"></td>
+					<td></td>
+				</tr>
+				<tr data-view-type="2">
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="5">提示需更新管理者後，導引至新增資料庫頁面</td>
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="5">N</td>
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="5"></td>
+					<td></td>
+				</tr>
+				<tr data-view-type="2">
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">工號長度</td>
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">4</td>
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1"></td>
+					<td></td>
+				</tr>
+				<tr data-view-type="3">
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">允許悠遊卡張數</td>
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">3</td>
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1"></td>
+					<td></td>
+				</tr>
+				<tr data-view-type="3">
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">指紋驗證逾時秒數</td>
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">20</td>
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1"></td>
+					<td></td>
+				</tr>
+				<tr data-view-type="3">
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">指紋驗證分數下限</td>
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">1500</td>
+					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1"></td>
+					<td></td>
+				</tr>
+			</tbody>
 		</table>
 	</div>
 	<div class="p_08 grid-2">
-		<div class="search-fulid btn-wrap4">
-			<button class="btn-warning">主機同步</button>
-			<button class="btn-warning">門禁控制</button>
-			<button class="btn-warning">打卡設定</button>
+		<div class="search-fulid btn-wrap4" id="btn-view-type">
+			<button class="btn-warning" data-btn-type="1">主機同步</button>
+			<button class="btn-warning" data-btn-type="2">門禁控制</button>
+			<button class="btn-warning" data-btn-type="3">打卡設定</button>
 		</div>
 	</div>
-    <script src="scripts/jquery.min.js"></script>
-    <script type="text/javascript" src="scripts/livereload.js"></script>
-    <script type="text/javascript" src="scripts/date_time_config.js"></script>       
+
+	<!-- 系統設定dialog -->
+	<div class="modal fade" id="system_setting_popup" tabindex="-1" role="dialog" aria-labelledby="exampleLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span>
+						<span class="sr-only">Close</span>
+					</button>
+					<h4 class="modal-title" id="exampleModalLabel">New message</h4>
+				</div>
+				<div class="modal-body" data-contype="">
+					<form role="form"></form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+					<button type="button" class="btn btn-primary" id="btn_modal_done">確定</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="scripts/script.js"></script>
+	<script src="scripts/bootstrap.min.js"></script>
+	<script type="text/javascript" src="scripts/livereload.js"></script>
+	<script type="text/javascript" src="scripts/date_time_config.js"></script>
+	
+	<script>
+	// 替換 dialog content
+	$('#system_setting_popup').on('show.bs.modal', function (event) {
+		var trigger_obj = $(event.relatedTarget).parent("tr"),
+			title = trigger_obj.find("td").eq(0).text(),
+			recipient = trigger_obj.find("td").eq(1).text(),
+			type = trigger_obj.find("td").eq(0).data('modaltype'),
+			modal = $(this),
+			modal_cont = modal.find('.modal-body form');
+
+		// 新增 dialog .modal-body type data
+		modal.find('.modal-body').attr('data-contype', type);
+
+		// dialog 標題文字
+		modal.find('.modal-title').text("請輸入" + title);
+
+		// table>tr 加樣式作為寫值用
+		trigger_obj.addClass("current").siblings().removeClass("current");
+
+		switch(type){
+			// input-text
+			case 1:{
+				modal_cont.html('<div class="form-group"><input type="text" class="form-control" id="recipient"></div>');
+				modal.find('#recipient').val(recipient);
+				break;
+			}
+			// radio - false & ture
+			case 2:{
+				modal_cont.html(
+					'<div class="radio"><label><input type="radio" name="fot" value="false">false</label></div>' +
+					'<div class="radio"><label><input type="radio" name="fot" value="true">true</label></div>'
+				);
+			  
+				if( recipient != '' ){
+					modal_cont.find('.radio input').each(function(){
+						if( recipient == $(this).val()){
+							this.checked = true;
+						}
+					});
+			  	}
+			  	break;
+			}
+			// radio - single_choose
+			case 3:{
+				modal_cont.html('<div class="radio"><label><input type="radio" name="file" value="csv">csv</label></div>');
+			  
+				if( recipient != '' ){
+					modal_cont.find('.radio input').each(function(){
+						if( recipient == $(this).val()){
+							this.checked = true;
+				  		}
+					});
+				}
+			  break;
+			}
+			// checkbox
+			case 4:{
+				var time_text = "",
+					cont_html = "";
+			  
+				for(var i = 0; i < 24; i++){
+				
+					if( i < 10 ){
+						time_text = ("0" + i + ":00");
+					} else {
+						time_text = (i + ":00")
+					};
+
+					cont_html +=
+						'<div class="checkbox">' +
+						'<label>' +
+						'<input type="checkbox" value="'+ time_text +'">'+ time_text +
+						'</label>' +
+						'</div>';
+					};
+			  
+				$("body").on("click",'.modal-body input[type=checkbox]',function(){
+					check_arr = [];  
+					$('.modal-body').find('input[type=checkbox]:checked').each(function(){
+						check_arr.push($(this).val());
+					});
+				});
+
+				modal_cont.html(cont_html);
+			  
+				if( recipient != '' ){
+					var td_arr = recipient.split(",");
+					for( var i = 0; i < td_arr.length; i++ ){
+						$('.checkbox').find('input[value="'+ td_arr[i] +'"]').prop("checked", true);
+					}
+				}
+				break;
+			}
+			// radio - n & y
+			case 5:{
+				modal_cont.html(
+					'<div class="radio"><label><input type="radio" name="ny" value="N">N</label></div>' +
+					'<div class="radio"><label><input type="radio" name="ny" value="Y">Y</label></div>');
+
+				if( recipient != '' ){
+					modal_cont.find('.radio input').each(function(){
+						if( recipient == $(this).val()){
+							this.checked = true;
+						}
+					});
+				}
+				break;
+			}
+		}
+	});
+
+	// popup btn-done 寫值入 table
+	$("body").on("click","#btn_modal_done",function(event){
+		var target_tr = $('.current'),
+			target_td = target_tr.find("td").eq(1),
+			done_type = parseInt($('.modal-body').attr('data-contype'));
+		  
+		switch(done_type){
+			// input-text
+			case 1:{
+				target_td.text($('#recipient').val());
+				break;
+			}
+			// radio - false & ture
+			case 2: {
+				target_td.text($('input[name="fot"]:checked').val());
+				break;
+			}
+			// radio - single_choose
+			case 3: {
+				var checked_name = $('input[name="file"]:checked');
+				target_td.text(checked_name.val());
+				break;
+			}
+			// checkbox
+			case 4:{
+				target_td.text(check_arr);
+			}
+			// radio - n & y
+			case 5: {
+				target_td.text($('input[name="ny"]:checked').val());
+				break;
+			}
+		};
+		$('#system_setting_popup').modal('hide');
+	});
+	</script>   
 </body>
 </html>
