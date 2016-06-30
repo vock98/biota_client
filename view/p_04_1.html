@@ -3,7 +3,9 @@
 <head>
 	<meta charset="UTF-8">
 	<title>p_04_1</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/style.css">
+	<script src="scripts/jquery.min.js"></script>
 </head>
 <body>
 	<div class="head">
@@ -14,71 +16,362 @@
 	</div>
 
 	<div class="search-fulid btn-wrap">
-		<button class="btn-success">新增下一筆</button>
-		<button class="btn-warning">儲存</button>
+		<button id="btn_create_next" class="btn-success">新增下一筆</button>
+		<button id="btn_save_account" class="btn-warning">儲存</button>
 	</div>
 	
 	<div class="grid-fulid-2">
-		<div class="grid-3">
+		<div class="col-md-4">
 			<table class="grid-3-table">
-				<tr>
+				<tr data-toggle="modal" data-target="#account_name_popup">
 					<th>姓名</th>
-					<td>&nbsp;</td>
+					<td id="account_name_td"></td>
 				</tr>
-				<tr>
+				<tr data-toggle="modal" data-target="#account_number_popup">
 					<th>工號</th>
-					<td>&nbsp;</td>
+					<td id="account_number_td"></td>
 				</tr>
-				<tr>
+				<tr data-toggle="modal" data-target="#account_job_title_popup">
 					<th>職稱</th>
-					<td>&nbsp;</td>
+					<td id="account_job_title_td"></td>
 				</tr>
-				<tr>
+				<tr data-toggle="modal" data-target="#account_birthday_popup">
 					<th>生日</th>
-					<td>&nbsp;</td>
+					<td id="account_birthday_td"></td>
 				</tr>
-				<tr>
+				<tr data-toggle="modal" data-target="#account_sex_popup">
 					<th>性別</th>
-					<td>&nbsp;</td>
+					<td id="account_sex_td"></td>
 				</tr>
-				<tr>
+				<tr data-toggle="modal" data-target="#account_blood_type_popup">
 					<th>血型</th>
-					<td>&nbsp;</td>
+					<td id="account_blood_type_td"></td>
 				</tr>
 			</table>
 		</div>
-		<div class="grid-3">
-			<div class="result_text">
+		<div class="col-md-4">
+			<div class="col-md-12 result_text">
 				<span>指紋</span>
 			</div>
-			<div class="result_img">
-				<span><a href="#">姆指</a></span>
+			<div class="col-xs-6 col-md-6">
+				<div class="result_img">
+					<a href="javascript:;" data-url="p_04_2.html">左姆指</a>
+				</div>
 			</div>
-			<div class="result_img">
-				<span><a href="#">食指</a></span>
+			<div class="col-xs-6 col-md-6">
+				<div class="result_img">
+					<a href="javascript:;">右姆指</a>
+				</div>
 			</div>
-			<div class="result_img">
-				<span><a href="#">中指</a></span>
+			<div class="col-xs-6 col-md-6">
+				<div class="result_img">
+					<a href="javascript:;">左食指</a>
+				</div>
 			</div>
-
-			<a href="#" title="無名指"><img src="img/finger.png" class="result_img"></a>
-
-			<div class="result_img">
-				<span><a href="#">小指</a></span>
+			<div class="col-xs-6 col-md-6">
+				<div class="result_img">
+					<a href="javascript:;">右食指</a>
+				</div>
+			</div>
+			<div class="col-xs-6 col-md-6">
+				<div class="result_img">
+					<a href="javascript:;">左中指</a>
+				</div>
+			</div>
+			<div class="col-xs-6 col-md-6">
+				<div class="result_img">
+					<a href="javascript:;">右中指</a>
+				</div>
+			</div>
+			<div class="col-xs-6 col-md-6">
+				<div class="result_img">
+					<a href="javascript:;">左無名指</a>
+				</div>
+			</div>
+			<div class="col-xs-6 col-md-6">
+				<div class="result_img">
+					<a href="javascript:;">右無名指</a>
+				</div>
+			</div>
+			<div class="col-xs-6 col-md-6">
+				<div class="result_img">
+					<a href="javascript:;">左小指</a>
+				</div>
+			</div>
+			<div class="col-xs-6 col-md-6">
+				<div class="result_img">
+					<a href="javascript:;">右小指</a>
+				</div>
 			</div>
 		</div>
-		<div class="grid-3">
+		<div id="access_card" class="col-md-4">			
 			<div class="result_text">
 				<span>門禁卡</span>
 			</div>
-			<div class="search-fulid btn-wrap2">
-				<input type="text" value="acb0cda1b3">
-				<button class="btn-danger">刪除</button>
+			<div class="form-group clone_ac_input">
+				<div class="search-fulid btn-wrap2 hidden">
+					<input type="text" value="">
+					<button class="btn-danger btn-ac-delete">刪除</button>
+				</div>
 			</div>
-			<div class="search-fulid btn-wrap3">
-				<button class="btn-success">新增</button>
+			<div class="form-group">
+				<div class="search-fulid btn-wrap2">
+					<input type="text" value="">
+					<button class="btn-danger btn-ac-delete">刪除</button>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="search-fulid btn-wrap3">
+					<button class="btn-success" id="btn-ac-clone">新增</button>
+				</div>
 			</div>
 		</div>
 	</div>
+
+	<!-- dialog 姓名 -->
+	<div class="modal fade" id="account_name_popup" tabindex="-1" role="dialog" aria-labelledby="account_name_Label" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span>
+						<span class="sr-only">Close</span>
+					</button>
+					<h4 class="modal-title" id="account_name_Label">請輸入姓名</h4>
+				</div>
+				<div class="modal-body">
+					<form role="form">
+						<div class="form-group"><input type="text" class="form-control" id="account_name"></div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+					<button type="button" class="btn btn-primary" id="btn_account_name">確定</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- dialog 工號 -->
+	<div class="modal fade" id="account_number_popup" tabindex="-1" role="dialog" aria-labelledby="account_number_Label" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span>
+						<span class="sr-only">Close</span>
+					</button>
+					<h4 class="modal-title" id="account_number_Label">請輸入工號</h4>
+				</div>
+				<div class="modal-body">
+					<form role="form">
+						<div class="form-group"><input type="text" class="form-control" id="account_number" maxlength="4"></div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+					<button type="button" class="btn btn-primary" id="btn_account_number">確定</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- dialog 職稱 -->
+	<div class="modal fade" id="account_job_title_popup" tabindex="-1" role="dialog" aria-labelledby="account_job_title_Label" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span>
+						<span class="sr-only">Close</span>
+					</button>
+					<h4 class="modal-title" id="account_job_title_Label">請輸入職稱</h4>
+				</div>
+				<div class="modal-body">
+					<form role="form">
+						<div class="form-group"><input type="text" class="form-control" id="account_job_title"></div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+					<button type="button" class="btn btn-primary" id="btn_account_job_title">確定</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- dialog 生日 -->
+	<div class="modal fade" id="account_birthday_popup" tabindex="-1" role="dialog" aria-labelledby="account_birthday_Label" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span>
+						<span class="sr-only">Close</span>
+					</button>
+					<h4 class="modal-title" id="account_birthday_Label">請輸入生日</h4>
+				</div>
+				<div class="modal-body">
+					<form role="form">
+						<div class="form-group"><input type="date" class="form-control" id="account_birthday"></div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+					<button type="button" class="btn btn-primary" id="btn_account_birthday">確定</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- dialog 性別 -->
+	<div class="modal fade" id="account_sex_popup" tabindex="-1" role="dialog" aria-labelledby="account_sex_Label" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span>
+						<span class="sr-only">Close</span>
+					</button>
+					<h4 class="modal-title" id="account_sex_Label">請輸入性別</h4>
+				</div>
+				<div class="modal-body">
+					<form role="form">
+						<div class="radio"><label><input type="radio" name="account_sex" value="male">male</label></div>
+						<div class="radio"><label><input type="radio" name="account_sex" value="female">female</label></div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+					<button type="button" class="btn btn-primary" id="btn_account_sex">確定</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- dialog 血型 -->
+	<div class="modal fade" id="account_blood_type_popup" tabindex="-1" role="dialog" aria-labelledby="account_blood_type_Label" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span>
+						<span class="sr-only">Close</span>
+					</button>
+					<h4 class="modal-title" id="account_blood_type_Label">請輸入血型</h4>
+				</div>
+				<div class="modal-body">
+					<form role="form">
+						<div class="radio"><label><input type="radio" name="account_blood_type" value="A">A</label></div>
+						<div class="radio"><label><input type="radio" name="account_blood_type" value="B">B</label></div>
+						<div class="radio"><label><input type="radio" name="account_blood_type" value="AB">AB</label></div>
+						<div class="radio"><label><input type="radio" name="account_blood_type" value="O">O</label></div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+					<button type="button" class="btn btn-primary" id="btn_account_blood_type">確定</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="validation_alert" class="validation_alert hidden">
+		<ol class="list-style">
+		</ol>
+	</div>
+
+	<!-- <script src="scripts/script.js"></script> -->
+	<script src="scripts/bootstrap.min.js"></script>
+	<!-- <script type="text/javascript" src="scripts/livereload.js"></script> -->
+	<!-- <script type="text/javascript" src="scripts/date_time_config.js"></script> -->
+
+	<script>
+	// 欄位判斷 & 生成 alert 內容
+	function validation_account( ){
+		$('#validation_alert ol').html("");
+		$(".grid-3-table tr").each(function( row_index ){
+			var $ol = $('#validation_alert ol'),
+				$tr = $(this),
+				$th = $tr.find("th"),
+				$td = $tr.find("td"),
+				$td_text = $.trim($td.text()),
+				$alert = "";
+			if( $td_text == ''){
+				$alert += '<li>' + $th.text() + '不能為空字串</li>';
+				$ol.append($alert);
+			} else if( row_index == 1 && $td_text.length < 4 ){
+				$alert += '<li>' + $th.text() + '必為四碼數字</li>';
+				$ol.append($alert);
+			} else if( row_index == 1 && isNaN($td_text) ){
+				$alert += '<li>' + $th.text() + '必為四碼數字</li>';
+				$ol.append($alert);
+			}
+		});
+	};
+
+	function show_alert(){
+		// 欄位判斷
+		validation_account();
+
+		if($('#validation_alert ol li').size() == 0 ){
+			// 若無提示筆數，則隱藏alert區塊，並轉跳建立指紋頁面
+			$('#validation_alert').addClass('hidden');
+			$(this).attr("href",$(this).data("url"));
+		} else {
+			// 有欄位提示，則跳出alert，並清除該按鈕連結
+			$('#validation_alert').removeClass('hidden').show().delay(3000).fadeOut(3000);
+			$(this).attr("herf","javascript:;");
+		}
+	};
+
+	// 指紋按鈕
+	$(".result_img a").click(function(event){
+		show_alert();
+	});
+
+	// dialog btn
+	$("#btn_account_name").click(function(){
+		$("#account_name_td").text($("#account_name").val());
+		$("#account_name_popup").modal('hide');
+	});
+	$("#btn_account_number").click(function(){
+		$("#account_number_td").text($("#account_number").val());
+		$("#account_number_popup").modal('hide');
+	});
+	$("#btn_account_job_title").click(function(){
+		$("#account_job_title_td").text($("#account_job_title").val());
+		$("#account_job_title_popup").modal('hide');
+	});
+	$("#btn_account_birthday").click(function(){
+		$("#account_birthday_td").text($("#account_birthday").val());
+		$("#account_birthday_popup").modal('hide');
+	});
+	$("#btn_account_sex").click(function(){
+		$("#account_sex_td").text($("#account_sex_popup input[name=account_sex]:checked").val());
+		$("#account_sex_popup").modal('hide');
+	});
+	$("#btn_account_blood_type").click(function(){
+		$("#account_blood_type_td").text($("#account_blood_type_popup input[name=account_blood_type]:checked").val());
+		$("#account_blood_type_popup").modal('hide');
+	});
+
+	// 門禁卡刪除
+	$("body").on("click",".btn-ac-delete",function(){
+		$(this).parent().parent().remove();
+	});
+
+	// 門禁卡新增
+	$("#btn-ac-clone").click(function(){
+		var $clone = $(".clone_ac_input").clone().eq(0);
+		$clone.children().removeClass("hidden");
+
+		// 最多可新增三張門禁卡 ( 5-2=3 扣除複製元件及新增按鈕)
+		if($("#access_card").find(".form-group").length < 5){
+			$(this).parent().before($clone);
+		}
+	});
+	
+	</script>
 </body>
 </html>
