@@ -53,4 +53,9 @@ function ajax_callback( input_url, input_obj ){
     
     $(".i-access").parent().on("click",function(){
         // document.location.href="p_07.html";
-    })     
+    })
+
+    // p_04
+    $("#btn_add_new_account").on("click",function(){
+        document.location.href="p_04_1.html";
+    });
