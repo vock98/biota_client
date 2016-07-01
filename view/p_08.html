@@ -32,7 +32,12 @@
 			</thead>
 			<tbody>
 				<!--
-				/*  data-modaltype ( dialog類型 )
+				/*  data-view-type ( 右側篩選鈕 )
+					1. 主機
+					2. 門禁
+					3. 打卡
+
+				    data-modaltype ( dialog類型 )
 					1. input - text
 					2. radio - t || f
 					3. radio - single_choose
@@ -48,7 +53,7 @@
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="2"></td>
 					<td></td>
 				</tr>
-				<tr data-view-type="1">
+				<tr data-view-type="2">
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="2">關閉API錯誤提示</td>
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="2">true</td>
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="2">false</td>
@@ -75,25 +80,25 @@
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1"></td>
 					<td></td>
 				</tr>
-				<tr data-view-type="3">
+				<tr data-view-type="1">
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">指紋採樣程式執行設備API</td>
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">/test/ApDevice.php</td>
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1"></td>
 					<td></td>
 				</tr>
-				<tr data-view-type="3">
+				<tr data-view-type="1">
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">指紋機設備資料API</td>
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">/test/FingerprintDevice.php</td>
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1"></td>
 					<td></td>
 				</tr>
-				<tr data-view-type="2">
+				<tr data-view-type="1">
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">人員資料API</td>
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">/test/human.php</td>
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1"></td>
 					<td></td>
 				</tr>
-				<tr data-view-type="2">
+				<tr data-view-type="1">
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">NFC資料API</td>
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">/test/nfc.php</td>
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1"></td>
@@ -105,61 +110,61 @@
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1"></td>
 					<td></td>
 				</tr>
-				<tr data-view-type="3">
+				<tr data-view-type="1">
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">Client端比對指紋資料紀錄API</td>
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">/test/MatchLog.php</td>
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1"></td>
 					<td></td>
 				</tr>
-				<tr data-view-type="1">
+				<tr data-view-type="3">
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">SMTP Server</td>
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">ms.mailcloud.com.tw</td>
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1"></td>
 					<td></td>
 				</tr>
-				<tr data-view-type="1">
+				<tr data-view-type="3">
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">SMTP Port</td>
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">25</td>
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1"></td>
 					<td></td>
 				</tr>
-				<tr data-view-type="2">
+				<tr data-view-type="3">
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">EmailAccount</td>
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">light@mail.startek-eng.com</td>
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1"></td>
 					<td></td>
 				</tr>
-				<tr data-view-type="2">
+				<tr data-view-type="3">
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">EmailPassword</td>
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">2xuxodrx</td>
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1"></td>
 					<td></td>
 				</tr>
-				<tr data-view-type="2">
+				<tr data-view-type="3">
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="2">EmailSSL</td>
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="2">false</td>
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="2"></td>
 					<td></td>
 				</tr>
-				<tr data-view-type="1">
+				<tr data-view-type="3">
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">郵件發送目的地</td>
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">skt90u@gmail.com</td>
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1"></td>
 					<td></td>
 				</tr>
-				<tr data-view-type="1">
+				<tr data-view-type="3">
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">郵件主旨</td>
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">[BioTA]{appname}_CSV_{date:yyyyMMdd}_{date:HH}</td>
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1"></td>
 					<td></td>
 				</tr>
-				<tr data-view-type="1">
+				<tr data-view-type="3">
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">郵件內容</td>
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1"></td>
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1"></td>
 					<td></td>
 				</tr>
-				<tr data-view-type="1">
+				<tr data-view-type="3">
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="4">郵件發送時間</td>
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="4">00:00,01:00,02:00,03:00,04:00,05:00,06:00,07:00,08:00,09:00,10:00,11:00,12:00,13:00,14:00,15:00,16:00,17:00,18:00,19:00,20:00,21:00,22:00,23:00</td>
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="4"></td>
@@ -171,7 +176,7 @@
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="3"></td>
 					<td></td>
 				</tr>
-				<tr data-view-type="3">
+				<tr data-view-type="2">
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="5">顯示NFC警告訊息</td>
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="5">Y</td>
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="5"></td>
@@ -189,19 +194,19 @@
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1"></td>
 					<td></td>
 				</tr>
-				<tr data-view-type="3">
+				<tr data-view-type="2">
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">允許悠遊卡張數</td>
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">3</td>
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1"></td>
 					<td></td>
 				</tr>
-				<tr data-view-type="3">
+				<tr data-view-type="2">
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">指紋驗證逾時秒數</td>
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">20</td>
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1"></td>
 					<td></td>
 				</tr>
-				<tr data-view-type="3">
+				<tr data-view-type="2">
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">指紋驗證分數下限</td>
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1">1500</td>
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="1"></td>
