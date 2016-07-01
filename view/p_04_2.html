@@ -6,6 +6,7 @@
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/style.css">
 	<script src="scripts/jquery.min.js"></script>
+	<script src="scripts/jquery.cookie.js"></script>
 </head>
 <body>
 	<div class="head">
@@ -24,27 +25,27 @@
 			<table class="grid-3-table">
 				<tr>
 					<th>姓名</th>
-					<td>王小明</td>
+					<td id="account_name_td"></td>
 				</tr>
 				<tr>
 					<th>工號</th>
-					<td>0328</td>
+					<td id="account_number_td"></td>
 				</tr>
 				<tr>
 					<th>職稱</th>
-					<td>RD</td>
+					<td id="account_job_title_td"></td>
 				</tr>
 				<tr>
 					<th>生日</th>
-					<td>1988/08/08</td>
+					<td id="account_birthday_td"></td>
 				</tr>
 				<tr>
 					<th>性別</th>
-					<td>男</td>
+					<td id="account_sex_td"></td>
 				</tr>
 				<tr>
 					<th>血型</th>
-					<td>RH</td>
+					<td id="account_blood_type_td"></td>
 				</tr>
 			</table>
 		</div>
@@ -80,6 +81,18 @@
 
 	<script src="scripts/script.js"></script>
 	<script>
+	// ready
+	$(function(){
+		// 從cookie取值
+		var account_arr =  $.cookie("account_arr");
+			account = account_arr.split(",");
+		for(var i in account){
+			$(".grid-3-table tr").eq(i).find("td").text(account[i]);
+		}
+		
+		// 清除cookie, 依名稱給null值即可 
+		// $.cookie("cookie_name", null)
+	});
 	function show_alert2(){
 		if($('#validation_alert2 ol li').size() == 0 ){
 			// 若無提示筆數，則隱藏alert區塊
