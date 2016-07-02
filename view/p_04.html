@@ -29,7 +29,8 @@
 				<th>指紋</th>
 				<th>操作</th>
 			</tr>
-			<tr>
+			<!-- example
+            <tr>
 				<td>張饒輝</td>
 				<td>0327</td>
 				<td>PM</td>
@@ -38,46 +39,47 @@
 				<td>3</td>
 				<td class="text-left">資料驗證 | 刪除</td>
 			</tr>
-			<tr>
-				<td>王小明</td>
-				<td>0328</td>
-				<td>RD</td>
-				<td>2016/01/10  20:30</td>
-				<td>1</td>
-				<td>2</td>
-				<td class="text-left">建檔</td>
-			</tr>
-			<tr>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-			</tr>
-			<tr>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-			</tr>
-			<tr>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-			</tr>
+            -->
 		</table>
 	</div>
     <script src="scripts/jquery.min.js"></script>
     <script type="text/javascript" src="scripts/livereload.js"></script>
     <script type="text/javascript" src="scripts/date_time_config.js"></script>    
+    <script>
+        var co = require('co');
+        var moment = require('moment');
+        co(function* () {
+            var ajax_url = "http://52.192.93.236:1337/api/ds_human"; //ajax網址
+            var ajax_data = {
+                type: "R1",
+                bind_id: "8888",
+            }; //ajax輸入值
+            
+            var ajax_return = yield ajax_callback( ajax_url, ajax_data ); //ajax回傳值
+            
+            for(var key in ajax_return["data"]){
+                var one_obj = ajax_return["data"][key];
+                var company_data = {
+                    number : "123",
+                    title : "PM",
+                    last_time : moment().format("YYYY/MM/DD HH:mm"),
+                };
+                $(".fulid-table").append(`
+                <tr>
+                    <td>${one_obj.name}</td>
+                    <td>${company_data.number}</td>
+                    <td>${company_data.title}</td>
+                    <td>${company_data.last_time}</td>
+                    <td>${one_obj.nfc.length}</td>
+                    <td>${one_obj.f.length}</td>
+                    <td class="text-left">資料驗證 | 刪除</td>
+                </tr>
+                `);
+            }
+            console.log(ajax_return);
+        }).catch(function(err){
+            console.log("catch_error",err);
+        });
+    </script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 {
   "name": "biota_client",
   "version": "0.0.1",
-  "main": "view/p_05.html",
+  "main": "view/p_03.html",
   "window": {
     "toolbar": true,
     "width": 1920,
