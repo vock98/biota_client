@@ -34,13 +34,13 @@ button{cursor:pointer}
 	.side-bg{background-image: url("../img/bg2.jpg")}
 
 	/* btn */
-	.btn-default,
-	.btn-success,
-	.btn-warning,
-	.btn-danger{background-color:#aacd06;color:#fff;font-weight:bold}
-	.btn-warning{background-color:#fabd00}
-	.btn-danger{background-color:#c22c81}
-	.btn-default{background-color:#ccc;outline-color:#ccc}
+	.btn_default,
+	.btn_success,
+	.btn_warning,
+	.btn_danger{background-color:#aacd06;color:#fff;font-weight:bold}
+	.btn_warning{background-color:#fabd00}
+	.btn_danger{background-color:#c22c81}
+	.btn_default{background-color:#ccc;outline-color:#ccc}
 
 /* head */
 .head:after{display:block;content:"";clear:both}
