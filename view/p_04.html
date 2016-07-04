@@ -18,7 +18,8 @@
 		<button class="btn-success" id="btn_add_new_account">新增</button>
 	</div>
 	<div class="grid-fulid">
-		<table class="fulid-table">
+		<table class="fulid-table"  id="search_cont">
+        <thead>
 			<tr>
 				<th>姓名</th>
 				<th>工號</th>
@@ -28,6 +29,9 @@
 				<th>指紋</th>
 				<th>操作</th>
 			</tr>
+        </thead>
+        <tbody>
+        </tbody>
 			<!-- example
             <tr>
 				<td>張饒輝</td>
@@ -42,6 +46,7 @@
 		</table>
 	</div>
     <script src="scripts/jquery.min.js"></script>
+    <script src="scripts/script.js"></script>
     <script type="text/javascript" src="scripts/livereload.js"></script>
     <script type="text/javascript" src="scripts/date_time_config.js"></script>    
     <script>
@@ -63,7 +68,7 @@
                     title : "PM",
                     last_time : moment().format("YYYY/MM/DD HH:mm"),
                 };
-                $(".fulid-table").append(`
+                $(".fulid-table").find("tbody").append(`
                 <tr>
                     <td>${one_obj.name}</td>
                     <td>${company_data.number}</td>

@@ -17,7 +17,7 @@
 
 	<div class="search-fulid">
 		<input type="text" id="search_box" placeholder="輸入關鍵字搜尋">
-		<button class="btn-success">查詢</button>
+		<button class="btn-success">儲存</button>
 	</div>
 	
 	<div class="grid-fulid grid-8">
@@ -32,7 +32,7 @@
 			</thead>
 			<tbody>
 				<!--
-				/*  data-view-type ( 右側篩選鈕 )
+				/*  data-view-type ( 右側篩選鈕 )*/
 					1. 主機
 					2. 門禁
 					3. 打卡
@@ -44,8 +44,8 @@
 					4. checkbox
 					5. radio - n || y
 
-				/*  data-titletext ( dialog標題 )
-				/*  data-inputext  ( dialog內容 )
+				/*  data-titletext ( dialog標題 )*/
+				/*  data-inputext  ( dialog內容 )*/
 				-->
 				<tr data-view-type="1">
 					<td data-toggle="modal" data-target="#system_setting_popup" data-modaltype="2">連線伺服器</td>
@@ -379,7 +379,7 @@
 				break;
 			}
 			// radio - single_choose
-			case 3: {
+			case 3: { 
 				var checked_name = $('input[name="file"]:checked');
 				target_td.text(checked_name.val());
 				break;

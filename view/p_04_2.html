@@ -52,7 +52,7 @@
 		<div class="col-md-8 add_finger_img">
 			<div class="col-md-12 text-center">
 				<div class="result_text">
-					左姆指
+					<span id="now_finger">左姆指</span>
 				</div>
 			</div>
 			<div class="col-xs-4 col-md-4">
@@ -80,19 +80,21 @@
 	</div>
 
 	<script src="scripts/script.js"></script>
+	<script type="text/javascript" src="scripts/livereload.js"></script>
+	<script type="text/javascript" src="scripts/date_time_config.js"></script>    
 	<script>
 	// ready
 	$(function(){
-		// 從cookie取值
-		var account_arr =  $.cookie("account_arr");
-			account = account_arr.split(",");
-		for(var i in account){
-			$(".grid-3-table tr").eq(i).find("td").text(account[i]);
-		}
-		
-		// 清除cookie, 依名稱給null值即可 
-		// $.cookie("cookie_name", null)
+        //預設有cookie則寫入對應位置 (內部換頁)
+		$("#account_name_td").text( $.cookie("name") );        
+		$("#account_number_td").text( $.cookie("number") );        
+		$("#account_job_title_td").text( $.cookie("job_title") );        
+		$("#account_birthday_td").text( $.cookie("birthday") );        
+		$("#account_sex_td").text( $.cookie("sex") );        
+		$("#account_blood_type_td").text( $.cookie("blood_type") );
+        
 	});
+    
 	function show_alert2(){
 		if($('#validation_alert2 ol li').size() == 0 ){
 			// 若無提示筆數，則隱藏alert區塊

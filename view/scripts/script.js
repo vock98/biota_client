@@ -21,7 +21,6 @@ $("#number_btn li").click(function(){
 	}
 });
 
-
 // search table text
 $('#search_box').keyup(function() {
 	var searchText;

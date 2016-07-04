@@ -26,27 +26,27 @@
 			<table class="grid-3-table">
 				<tr data-toggle="modal" data-target="#account_name_popup">
 					<th>姓名</th>
-					<td id="account_name_td">xxxx</td>
+					<td id="account_name_td"></td>
 				</tr>
 				<tr data-toggle="modal" data-target="#account_number_popup">
 					<th>工號</th>
-					<td id="account_number_td">1234</td>
+					<td id="account_number_td"></td>
 				</tr>
 				<tr data-toggle="modal" data-target="#account_job_title_popup">
 					<th>職稱</th>
-					<td id="account_job_title_td">ssss</td>
+					<td id="account_job_title_td"></td>
 				</tr>
 				<tr data-toggle="modal" data-target="#account_birthday_popup">
 					<th>生日</th>
-					<td id="account_birthday_td">2100-05-05</td>
+					<td id="account_birthday_td"></td>
 				</tr>
 				<tr data-toggle="modal" data-target="#account_sex_popup">
 					<th>性別</th>
-					<td id="account_sex_td">x</td>
+					<td id="account_sex_td"></td>
 				</tr>
 				<tr data-toggle="modal" data-target="#account_blood_type_popup">
 					<th>血型</th>
-					<td id="account_blood_type_td">a</td>
+					<td id="account_blood_type_td"></td>
 				</tr>
 			</table>
 		</div>
@@ -56,68 +56,68 @@
 			</div>
 			<div class="col-xs-6 col-md-6">
 				<div class="result_img">
-					<a href="" data-url="p_04_2.html">左姆指</a>
+					<a href="javascript:;" data-url="p_04_2.html">左姆指</a>
 				</div>
 			</div>
 			<div class="col-xs-6 col-md-6">
 				<div class="result_img">
-					<a href="">右姆指</a>
+					<a href="javascript:;" data-url="p_04_2.html">右姆指</a>
 				</div>
 			</div>
 			<div class="col-xs-6 col-md-6">
 				<div class="result_img">
-					<a href="">左食指</a>
+					<a href="javascript:;" data-url="p_04_2.html">左食指</a>
 				</div>
 			</div>
 			<div class="col-xs-6 col-md-6">
 				<div class="result_img">
-					<a href="">右食指</a>
+					<a href="javascript:;" data-url="p_04_2.html">右食指</a>
 				</div>
 			</div>
 			<div class="col-xs-6 col-md-6">
 				<div class="result_img">
-					<a href="">左中指</a>
+					<a href="javascript:;" data-url="p_04_2.html">左中指</a>
 				</div>
 			</div>
 			<div class="col-xs-6 col-md-6">
 				<div class="result_img">
-					<a href="">右中指</a>
+					<a href="javascript:;" data-url="p_04_2.html">右中指</a>
 				</div>
 			</div>
 			<div class="col-xs-6 col-md-6">
 				<div class="result_img">
-					<a href="">左無名指</a>
+					<a href="javascript:;" data-url="p_04_2.html">左無名指</a>
 				</div>
 			</div>
 			<div class="col-xs-6 col-md-6">
 				<div class="result_img">
-					<a href="">右無名指</a>
+					<a href="javascript:;" data-url="p_04_2.html">右無名指</a>
 				</div>
 			</div>
 			<div class="col-xs-6 col-md-6">
 				<div class="result_img">
-					<a href="">左小指</a>
+					<a href="javascript:;" data-url="p_04_2.html">左小指</a>
 				</div>
 			</div>
 			<div class="col-xs-6 col-md-6">
 				<div class="result_img">
-					<a href="">右小指</a>
+					<a href="javascript:;" data-url="p_04_2.html">右小指</a>
 				</div>
 			</div>
 		</div>
 		<div id="access_card" class="col-md-4">			
 			<div class="result_text">
 				<span>門禁卡</span>
-			</div>
+			</div> 
 			<div class="form-group clone_ac_input">
 				<div class="search-fulid btn-wrap2 hidden">
-					<input type="text" value="">
+					<input type="text" class="now_card" value="">
 					<button class="btn-danger btn-ac-delete">刪除</button>
 				</div>
 			</div>
 			<div class="form-group">
 				<div class="search-fulid btn-wrap2">
-					<input type="text" value="">
+					<input type="text" class="now_card" value="">
 					<button class="btn-danger btn-ac-delete">刪除</button>
 				</div>
 			</div>
@@ -287,15 +287,58 @@
 	<script type="text/javascript" src="scripts/date_time_config.js"></script>
 
 	<script>
-	$(function(){
-
-		if($.cookie("account_arr") == null){
-			console.log("xx")
-		}
-
+    $(function(){
+        //預設有cookie則寫入對應位置 (內部換頁)
+		$("#account_name_td").text( $.cookie("name") );        
+		$("#account_number_td").text( $.cookie("number") );        
+		$("#account_job_title_td").text( $.cookie("job_title") );        
+		$("#account_birthday_td").text( $.cookie("birthday") );        
+		$("#account_sex_td").text( $.cookie("sex") );        
+		$("#account_blood_type_td").text( $.cookie("blood_type") ); 
+        var card_array = $.cookie("card_sn").split(",");
+        for(var key in card_array){
+            if(key>=1){
+                $("#btn-ac-clone").trigger("click");
+            }
+            $(".now_card:last").val(card_array[key]); 
+        }
 	});
-
-
+    
+       
+	/*****彈跳視窗類 start*****/
+	$("#btn_account_name").click(function(){
+		$("#account_name_td").text($("#account_name").val());
+        $.cookie("name", $("#account_name").val() ); //寫入cookie
+		$("#account_name_popup").modal('hide');
+	});
+	$("#btn_account_number").click(function(){
+		$("#account_number_td").text($("#account_number").val());
+        $.cookie("number", $("#account_number").val() ); //寫入cookie
+		$("#account_number_popup").modal('hide');
+	});
+	$("#btn_account_job_title").click(function(){
+		$("#account_job_title_td").text($("#account_job_title").val());
+        $.cookie("job_title", $("#account_job_title").val() ); //寫入cookie
+		$("#account_job_title_popup").modal('hide');
+	});
+	$("#btn_account_birthday").click(function(){
+		$("#account_birthday_td").text($("#account_birthday").val());
+        $.cookie("birthday", $("#account_birthday").val() ); //寫入cookie
+		$("#account_birthday_popup").modal('hide');
+	});
+	$("#btn_account_sex").click(function(){
+		$("#account_sex_td").text($("#account_sex_popup input[name=account_sex]:checked").val());
+        $.cookie("sex", $("#account_sex_popup input[name=account_sex]:checked").val() ); //寫入cookie
+		$("#account_sex_popup").modal('hide');
+	});
+	$("#btn_account_blood_type").click(function(){
+		$("#account_blood_type_td").text($("#account_blood_type_popup input[name=account_blood_type]:checked").val());
+        $.cookie("blood_type", $("#account_blood_type_popup input[name=account_blood_type]:checked").val() ); //寫入cookie
+		$("#account_blood_type_popup").modal('hide');
+	}); 
+    /*****彈跳視窗類 end*****/
+    
+    /*****指紋類 start*****/
 	// 欄位判斷 & 生成 alert 內容
 	function validation_account( ){
 		$('#validation_alert ol').html("");
@@ -317,10 +360,78 @@
 				$alert += '<li>' + $th.text() + '必為四碼數字</li>';
 				$ol.html($alert);
 			}
-		});
+		}); 
 		return $alert;
 	};
 
+	// 指紋按鈕
+	$(".result_img a").click(function(event){
+		// 欄位判斷
+		validation_account();
+        // 紀錄門禁
+        cookie_now_card();
+
+		if($('#validation_alert ol li').size() == 0 ){
+            // 新增門禁卡cookie
+            
+            
+			// 若無提示筆數，則隱藏alert區塊，並轉跳建立指紋頁面
+			$('#validation_alert').addClass('hidden');
+			$(this).attr("href",$(this).data("url")).addClass("is_src");
+		} else {
+			// 有欄位提示，則跳出alert，並清除該按鈕連結
+			event.preventDefault();
+			$('#validation_alert').removeClass('hidden').show().delay(3000).fadeOut(3000);
+			$(this).attr("herf","").removeClass("is_src");
+		}
+	});
+    /*****指紋類 end*****/      
+    
+	/*****門禁卡類 start*****/
+    // 門禁卡新增
+	$("#btn-ac-clone").on("click", create_card );
+    // 門禁卡刪除
+	$("body").on("click",".btn-ac-delete",function(){
+		$(this).parent().parent().remove();
+        cookie_now_card();
+	});
+    
+    //產生門禁卡的新tag 
+    function create_card(){
+        var $clone = $(".clone_ac_input").clone().eq(0);
+		$clone.children().removeClass("hidden");
+
+		// 最多可新增三張門禁卡 ( 5-2=3 扣除複製元件及新增按鈕)
+		if($("#access_card").find(".form-group").length < 5){
+			$(this).parent().before($clone);
+		}
+    }
+    
+    //產生門禁卡的資料到cookie內
+    function cookie_now_card(){
+        var card_sn = [];
+        $(".now_card").each(function(){
+            if($(this).val()!=""){
+                card_sn.push( $(this).val() );
+            }
+        });
+        $.cookie("card_sn", card_sn ); //寫入cookie        
+    }
+    /*****門禁卡類 end*****/
+    
+    
+    /*****儲存類 start*****/
+	// 新增下一筆
+	$("#btn_create_next").click(function(){
+		fanal_check();
+	});
+
+	// 儲存
+	$("#btn_save_account").click(function(){
+		fanal_check();
+	});
+    
+    //儲存功能
 	function fanal_check(){
 		$alert_account_text = validation_account();
 		$alert = $('#validation_alert ol'),
@@ -339,95 +450,9 @@
 			// 有欄位提示，則跳出alert，並清除該按鈕連結
 			$('#validation_alert').removeClass('hidden').show().delay(3000).fadeOut(3000);
 		}	
-	}
-
-	// 指紋按鈕
-	$(".result_img a").click(function(event){
-		// 欄位判斷
-		validation_account();
-
-		if($('#validation_alert ol li').size() == 0 ){
-			// 建立cookie
-			var account_arr = [];
-			$(".grid-3-table tr").each(function(){
-				var $this = $(this),
-					$cont = $this.find("td").text();
-				account_arr.push($cont);
-			});
-
-			$.cookie("account_arr", account_arr);
-			console.log(account_arr,null);
-
-			// $.cookie("name", $("#account_name_td").text());
-			// $.cookie("number", $("#account_number_td").text());
-			// $.cookie("job_title", $("#account_job_title_td").text());
-			// $.cookie("birthday", $("#account_birthday_td").text());
-			// $.cookie("sex", $("#account_sex_td").text());
-			// $.cookie("blood", $("#account_blood_type_td").text());
-
-			// 若無提示筆數，則隱藏alert區塊，並轉跳建立指紋頁面
-			$('#validation_alert').addClass('hidden');
-			$(this).attr("href",$(this).data("url")).addClass("is_src");
-		} else {
-			// 有欄位提示，則跳出alert，並清除該按鈕連結
-			event.preventDefault();
-			$('#validation_alert').removeClass('hidden').show().delay(3000).fadeOut(3000);
-			$(this).attr("herf","").removeClass("is_src");
-		}
-	});
-
-	// dialog btn
-	$("#btn_account_name").click(function(){
-		$("#account_name_td").text($("#account_name").val());
-		$("#account_name_popup").modal('hide');
-	});
-	$("#btn_account_number").click(function(){
-		$("#account_number_td").text($("#account_number").val());
-		$("#account_number_popup").modal('hide');
-	});
-	$("#btn_account_job_title").click(function(){
-		$("#account_job_title_td").text($("#account_job_title").val());
-		$("#account_job_title_popup").modal('hide');
-	});
-	$("#btn_account_birthday").click(function(){
-		$("#account_birthday_td").text($("#account_birthday").val());
-		$("#account_birthday_popup").modal('hide');
-	});
-	$("#btn_account_sex").click(function(){
-		$("#account_sex_td").text($("#account_sex_popup input[name=account_sex]:checked").val());
-		$("#account_sex_popup").modal('hide');
-	});
-	$("#btn_account_blood_type").click(function(){
-		$("#account_blood_type_td").text($("#account_blood_type_popup input[name=account_blood_type]:checked").val());
-		$("#account_blood_type_popup").modal('hide');
-	});
-
-	// 門禁卡刪除
-	$("body").on("click",".btn-ac-delete",function(){
-		$(this).parent().parent().remove();
-	});
-
-	// 門禁卡新增
-	$("#btn-ac-clone").click(function(){
-		var $clone = $(".clone_ac_input").clone().eq(0);
-		$clone.children().removeClass("hidden");
-
-		// 最多可新增三張門禁卡 ( 5-2=3 扣除複製元件及新增按鈕)
-		if($("#access_card").find(".form-group").length < 5){
-			$(this).parent().before($clone);
-		}
-	});
-
-	// 新增下一筆
-	$("#btn_create_next").click(function(){
-		fanal_check();
-	});
-
-	// 儲存
-	$("#btn_save_account").click(function(){
-		fanal_check();
-	});
-	
+	}    
+    /*****儲存類 end*****/
+    
 	</script>
 </body>
 </html>
