@@ -43,6 +43,6 @@ $("#btn-view-type button").click(function(){
 	var $this      = $(this),
 		$view_type = $this.data("btn-type");
 
-	$this.toggleClass("btn-default");
+	$this.toggleClass("btn_default");
 	$('#search_cont tbody tr[data-view-type="' + $view_type + '"]').toggleClass("hidden");
 });
